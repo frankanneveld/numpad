@@ -19,7 +19,7 @@ export class AppComponent {
     const calc = this.result$.value;
     try {
       const output = eval(calc.toString());
-      this.result$.next(output.toString());
+      this.result$.next(String(output)); // Prevent TypeError on output if null or undefined
     } catch (err) {
       this.result$.next('');
     }
