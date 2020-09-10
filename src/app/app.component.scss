@@ -1,0 +1,36 @@
+:host {
+  .result {
+    border: 1px gray solid;
+    width: 150px;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 3px;
+    font-weight: bold;
+  }
+
+  .numpad {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 150px;
+    border: 3px gray solid;
+
+    .item {
+      border: 1px gray solid;
+      background: #444;
+      color: #fff;
+      font-weight: bold;
+      width: 20px;
+      height: 20px;
+      padding: 10px;
+      margin: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
