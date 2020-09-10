@@ -8,7 +8,8 @@ import { distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public items$: Observable<string[]> = of(['1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '0', '+', '/', '*']);
+  private num: string[] = [...Array(10)].toString().split(',').map( (r,i) => r + i);
+  public items$: Observable<string[]> = of([...this.num, '-', '+', '/', '*']);
   public result$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   public onClick(item: string): void {
