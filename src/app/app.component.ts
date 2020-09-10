@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Observable, of, BehaviorSubject, timer } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,11 @@ export class AppComponent {
 
   public calculate(): void {
     const calc = this.result$.value;
+    try {
     const output = eval(calc.toString());
-    this.result$.next(output);
+    this.result$.next(output.toString());
+    } catch(err) {
+      this.result$.next('');
+    }
   }
 }
