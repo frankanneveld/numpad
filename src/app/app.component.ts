@@ -8,7 +8,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public items$: Observable<string[]> = of(['1', '2', '3', '4', '5' , '6', '7', '8', '9', '-', '0' ,'+']);
+  public items$: Observable<string[]> = of(['1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '0', '+']);
   public result$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   public onClick(item: string): void {
@@ -18,9 +18,9 @@ export class AppComponent {
   public calculate(): void {
     const calc = this.result$.value;
     try {
-    const output = eval(calc.toString());
-    this.result$.next(output.toString());
-    } catch(err) {
+      const output = eval(calc.toString());
+      this.result$.next(output.toString());
+    } catch (err) {
       this.result$.next('');
     }
   }
