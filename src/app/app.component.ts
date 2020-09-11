@@ -15,8 +15,8 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
               <div class="item" (click)="result$.next('')">C</div>
             </div>`})
 export class AppComponent {
-  private num: string[] = [...Array(10)].toString().split(',').map( (r,i) => r + i);
-  public items$: Observable<string[]> = of([...this.num, '-', '+', '/', '*']);
+  private num:    string[] = [...Array(10)].toString().split(',').map( (r,i) => r + i);
+  public items$:  Observable<string[]> = of([...this.num, '-', '+', '/', '*']);
   public result$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   public onClick(item: string): void {
@@ -27,7 +27,7 @@ export class AppComponent {
     const calc = this.result$.value;
     try {
       const output = eval(calc.toString());
-      this.result$.next(String(output)); // Prevent TypeError on output if null or undefined
+      this.result$.next(String(output));
     } catch (err) {
       this.result$.next('');
     }
