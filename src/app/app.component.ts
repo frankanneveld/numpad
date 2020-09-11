@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, of, BehaviorSubject, timer } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
